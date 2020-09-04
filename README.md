@@ -4,6 +4,32 @@
 
 This app uses the server request from local node server - https://github.com/csfilipinyi/node-challenge-chat-server
 
+## Getting started
+
+### Setting server
+
+```shell
+git clone https://github.com/csfilipinyi/node-challenge-chat-server
+cd node-challenge-chat-server
+npm i
+npm start
+```
+
+You should see the following
+![Alt text](assets/server-cli.png?raw=true 'Server CLI Output')
+
+### Setting up React App
+
+```shell
+git clone https://github.com/anthonytranDev/cyf-chat-react
+cd node-challenge-chat-server
+npm i
+npm start
+```
+
+You should see the following
+![Alt text](assets/frontend-cli.png?raw=true 'Frontend CLI Output')
+
 ## Warning
 
 Note this project does not contain the following examples of
