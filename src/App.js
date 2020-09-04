@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import './App.css'
 
 const resource = 'https://cyf-node-chat-server.glitch.me/'
-
 const params = '/messages'
 
 function App() {
