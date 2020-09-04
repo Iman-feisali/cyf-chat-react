@@ -3,7 +3,7 @@ import './App.css'
 
 const resource =
   process.env === 'production'
-    ? 'http://localhost:3001'
+    ? 'https://cyf-node-chat-server.glitch.me/'
     : 'http://localhost:3001'
 
 const params = '/messages'
