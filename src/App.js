@@ -7,14 +7,15 @@ const params = '/messages'
 function App() {
   const [messages, setMessages] = useState([])
   const [name, setName] = useState('')
-  const [newMessage, setNewMessage] = useState('')
+  const [text, setText] = useState('')
 
-  const getMessages = () =>
+  const getMessages = () => {
     fetch(`${resource}${params}`)
       .then(res => res.json())
       .then(data =>
         setMessages(data.sort((prev, curr) => (prev.id < curr.id ? 1 : -1)))
       )
+  }
 
   const postMessage = (from, text) => {
     const options = {
@@ -77,13 +78,11 @@ function App() {
         <div>
           <input
             placeholder="What’s on your mind?"
-            onChange={e => setNewMessage(e.target.value)}
+            onChange={e => setText(e.target.value)}
           ></input>
         </div>
 
-        <button onClick={() => postMessage(name, newMessage)}>
-          Create Message
-        </button>
+        <button onClick={() => postMessage(name, text)}>Create Message</button>
       </article>
     </section>
   )
