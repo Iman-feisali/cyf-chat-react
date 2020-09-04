@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 
-const resource =
-  process.env === 'production'
-    ? 'https://cyf-node-chat-server.glitch.me/'
-    : 'http://localhost:3001'
+const resource = 'https://cyf-node-chat-server.glitch.me/'
 
 const params = '/messages'
 
