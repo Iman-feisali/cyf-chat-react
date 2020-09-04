@@ -51,12 +51,10 @@ function App() {
       <article>
         {messages.map(({ text, from, id }) => (
           <div style={{ paddingBottom: '1rem' }} key={id}>
-            <div>
-              <span>{text}</span>
-              <span style={{ maxWidth: '8rem', float: 'right' }}>
-                <button onClick={() => deleteMessage(id)}>Delete</button>
-              </span>
-            </div>
+            <span>{text}</span>
+            <span style={{ maxWidth: '8rem', float: 'right' }}>
+              <button onClick={() => deleteMessage(id)}>Delete</button>
+            </span>
             <div>{from}</div>
           </div>
         ))}
