@@ -1,5 +1,9 @@
 # React front-end for chat server exercise
 
+## Description
+
+This app uses the server request from local node server - https://github.com/csfilipinyi/node-challenge-chat-server
+
 ## Warning
 
 Note this project does not contain the following examples of
