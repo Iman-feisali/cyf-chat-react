@@ -8,10 +8,11 @@ This app uses the server request from local node server - https://github.com/csf
 
 ### Live examples
 
-| Part of app          | URL                                     |
-| -------------------- | --------------------------------------- |
-| Front End React App  | https://cyf-chat-app.netlify.app/       |
-| Back End Node Server | https://cyf-node-chat-server.glitch.me/ |
+| Part of app                 | URL                                             |
+| --------------------------- | ----------------------------------------------- |
+| Front End React App         | https://cyf-chat-app.netlify.app/               |
+| Back End Node Server (live) | https://cyf-node-chat-server.glitch.me/         |
+| Back End Node Server (code) | https://glitch.com/edit/#!/cyf-node-chat-server |
 
 ### Setting server
 
