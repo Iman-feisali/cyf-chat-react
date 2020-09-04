@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import './App.css'
 
-const resource = 'http://localhost:3001'
+const resource =
+  process.env === 'production'
+    ? 'http://localhost:3001'
+    : 'http://localhost:3001'
+
 const params = '/messages'
 
 function App() {
@@ -48,12 +52,14 @@ function App() {
   })
 
   return (
-    <section style={{ width: '24rem' }}>
-      <article>
+    <section className="app">
+      <article className="app-feed">
+        <h3>Message Feed</h3>
+
         {messages.map(({ text, from, id }) => (
-          <div style={{ paddingBottom: '1rem' }} key={id}>
+          <div className="app-message" key={id}>
             <span>{text}</span>
-            <span style={{ maxWidth: '8rem', float: 'right' }}>
+            <span className="app-message-btn-del">
               <button onClick={() => deleteMessage(id)}>Delete</button>
             </span>
             <div>{from}</div>
@@ -63,23 +69,29 @@ function App() {
         <button onClick={getMessages}>Latest Messages</button>
       </article>
 
-      <article>
+      <article className="app-create">
         <h3>Create a message</h3>
 
-        <label>Name</label>
-        <div>
-          <input
-            placeholder="Enter your name"
-            onChange={e => setName(e.target.value)}
-          ></input>
+        <div className="app-create">
+          <label className="app-create">Name</label>
+          <div>
+            <input
+              className="app-create"
+              placeholder="Enter your name"
+              onChange={e => setName(e.target.value)}
+            ></input>
+          </div>
         </div>
 
-        <label>Message</label>
-        <div>
-          <input
-            placeholder="What’s on your mind?"
-            onChange={e => setText(e.target.value)}
-          ></input>
+        <div className="app-create">
+          <label className="app-create">Message</label>
+          <div>
+            <input
+              className="app-create"
+              placeholder="What’s on your mind?"
+              onChange={e => setText(e.target.value)}
+            ></input>
+          </div>
         </div>
 
         <button onClick={() => postMessage(name, text)}>Create Message</button>

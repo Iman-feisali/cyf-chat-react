@@ -2,3 +2,24 @@ body {
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
+.app {
+  width: 24rem;
+}
+
+.app-feed {
+  margin-bottom: 2rem;
+}
+
+.app-message {
+  margin-bottom: 1rem;
+}
+
+.app-message-btn-del {
+  max-width: 8rem;
+  float: right;
+}
+
+.app-create {
+  margin-bottom: 1rem;
+}
