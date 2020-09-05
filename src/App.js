@@ -8,6 +8,7 @@ function App() {
   const [messages, setMessages] = useState([])
   const [name, setName] = useState('')
   const [text, setText] = useState('')
+  const [showTextbox, setShowTextbox] = useState('')
 
   const getMessages = () => {
     fetch(`${resource}${params}`)
@@ -32,6 +33,35 @@ function App() {
     fetch(`${resource}${params}`, options).then(getMessages)
   }
 
+  const updateMessage = id => {
+    if (text) {
+      const options = {
+        method: 'PUT',
+        body: JSON.stringify({
+          text,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+
+      fetch(`${resource}${params}/${id}`, options).then(() => {
+        setShowTextbox('')
+        getMessages()
+      })
+    }
+
+    return
+  }
+
+  const cancelUpdate = id =>
+    new Promise(resolve => {
+      resolve(id)
+    }).then(() => {
+      setShowTextbox('')
+      getMessages()
+    })
+
   const deleteMessage = id => {
     const options = {
       method: 'DELETE',
@@ -45,7 +75,7 @@ function App() {
 
   useEffect(() => {
     getMessages()
-  })
+  }, [])
 
   return (
     <section className="app">
@@ -53,10 +83,29 @@ function App() {
         <h3>Message Feed</h3>
 
         {messages.map(({ text, from, id }) => (
-          <div className="app-message" key={id}>
-            <span>{text}</span>
+          <div
+            className="app-message"
+            key={id}
+            onClick={() => setShowTextbox(id)}
+          >
+            {showTextbox === id ? (
+              <input
+                className="app-message__input"
+                onChange={e => setText(e.target.value)}
+              ></input>
+            ) : (
+              <span>{text}</span>
+            )}
+
             <span className="app-message-btn-del">
-              <button onClick={() => deleteMessage(id)}>Delete</button>
+              {showTextbox === id ? (
+                <>
+                  <button onClick={() => updateMessage(id)}>Update</button>
+                  <button onClick={() => cancelUpdate('')}>Cancel</button>
+                </>
+              ) : (
+                <button onClick={() => deleteMessage(id)}>Delete</button>
+              )}
             </span>
             <div>{from}</div>
           </div>
